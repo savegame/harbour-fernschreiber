@@ -792,7 +792,7 @@ Page {
 
             header: Row {
                 id: drawerHeaderRow
-                width: parent.width - ( 2 * Theme.horizontalPageMargin)
+                width: parent.width - Theme.horizontalPageMargin
                 height: messageOptionsLabel.height + Theme.paddingLarge + ( chatPage.isPortrait ? ( 2 * Theme.paddingSmall ) : 0 )
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: Theme.paddingMedium
@@ -818,7 +818,7 @@ Page {
 
             delegate: ListItem {
                 Label {
-                    width: parent.width - ( 2 * Theme.horizontalPageMargin )
+                    width: parent.width - Theme.horizontalPageMargin
                     text: modelData.name
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter

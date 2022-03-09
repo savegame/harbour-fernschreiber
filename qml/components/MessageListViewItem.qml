@@ -35,8 +35,8 @@ ListItem {
     readonly property bool isAnonymous: myMessage.sender_id["@type"] === "messageSenderChat"
     readonly property var userInformation: tdLibWrapper.getUserInformation(myMessage.sender_id.user_id)
     property QtObject precalculatedValues: ListView.view.precalculatedValues
-    readonly property color textColor: isOwnMessage ? Theme.highlightColor : Theme.primaryColor
-    readonly property int textAlign: isOwnMessage ? Text.AlignRight : Text.AlignLeft
+    readonly property color textColor: Theme.primaryColor
+    readonly property int textAlign: Text.AlignLeft
     readonly property Page page: precalculatedValues.page
     readonly property bool isSelected: messageListItem.precalculatedValues.pageIsSelecting && page.selectedMessages.some(function(existingMessage) {
         return existingMessage.id === messageId
@@ -308,13 +308,15 @@ ListItem {
 
                 anchors {
                     left: parent.left
-                    leftMargin: messageListItem.isOwnMessage ? precalculatedValues.pageMarginDouble : 0
+                    leftMargin: 0
                     verticalCenter: parent.verticalCenter
                 }
                 height: messageTextColumn.height + precalculatedValues.paddingMediumDouble
                 width: precalculatedValues.backgroundWidth
                 property bool isUnread: index > chatModel.getLastReadMessageIndex() && myMessage['@type'] !== "sponsoredMessage"
-                color: Theme.colorScheme === Theme.LightOnDark ? (isUnread ? Theme.secondaryHighlightColor : Theme.secondaryColor) : (isUnread ? Theme.backgroundGlowColor : Theme.overlayBackgroundColor)
+                property color backgroundColor: Theme.colorScheme === Theme.LightOnDark ? (isUnread ? Theme.secondaryHighlightColor : Theme.secondaryColor) : (isUnread ? Theme.backgroundGlowColor : Theme.overlayBackgroundColor)
+                property color backgroundOwnColor:  Theme.colorScheme === Theme.LightOnDark ? Theme.secondaryHighlightColor : Theme.backgroundGlowColor
+                color: isOwnMessage ? backgroundOwnColor : backgroundColor
                 radius: parent.width / 50
                 opacity: isUnread ? 0.5 : 0.2
                 visible: appSettings.showStickersAsImages || (myMessage.content['@type'] !== "messageSticker" && myMessage.content['@type'] !== "messageAnimatedEmoji")
