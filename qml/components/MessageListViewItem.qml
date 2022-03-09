@@ -315,7 +315,7 @@ ListItem {
                 width: precalculatedValues.backgroundWidth
                 property bool isUnread: index > chatModel.getLastReadMessageIndex() && myMessage['@type'] !== "sponsoredMessage"
                 property color backgroundColor: Theme.colorScheme === Theme.LightOnDark ? (isUnread ? Theme.secondaryHighlightColor : Theme.secondaryColor) : (isUnread ? Theme.backgroundGlowColor : Theme.overlayBackgroundColor)
-                property color backgroundOwnColor:  Theme.colorScheme === Theme.LightOnDark ? Theme.secondaryHighlightColor : Theme.backgroundGlowColor
+                property color backgroundOwnColor:  Theme.colorScheme === Theme.LightOnDark ? Theme.darkSecondaryColor : Theme.lightSecondaryColor
                 color: isOwnMessage ? backgroundOwnColor : backgroundColor
                 radius: parent.width / 50
                 opacity: isUnread ? 0.5 : 0.2
