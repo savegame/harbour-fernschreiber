@@ -545,7 +545,7 @@ ListItem {
                 }
 
 
-                Text {
+                Text { // Message date label
                     width: parent.width
 
                     property bool useElapsed: true
@@ -553,9 +553,10 @@ ListItem {
                     id: messageDateText
                     font.pixelSize: Theme.fontSizeTiny
                     color: messageListItem.isOwnMessage ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    horizontalAlignment: messageListItem.textAlign
+                    horizontalAlignment: Text.AlignRight
                     text: getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed)
                     rightPadding: interactionLoader.active ? interactionLoader.width : 0
+
                     MouseArea {
                         anchors.fill: parent
                         enabled: !messageListItem.precalculatedValues.pageIsSelecting
