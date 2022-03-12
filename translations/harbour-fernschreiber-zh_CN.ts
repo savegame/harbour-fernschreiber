@@ -983,10 +983,6 @@
         <translation>编辑消息</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>你</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>转发消息</translation>
     </message>
@@ -1013,6 +1009,10 @@
     <message>
         <source>Delete Message</source>
         <translation>删除消息</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

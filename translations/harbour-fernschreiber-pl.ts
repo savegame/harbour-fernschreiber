@@ -1010,10 +1010,6 @@
         <translation>Edytuj widomość</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Ty</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Wiadomość przekazana</translation>
     </message>
@@ -1040,6 +1036,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Usuń wiadomość</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -996,10 +996,6 @@
         <translation>Edit Message</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>You</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Forwarded Message</translation>
     </message>
@@ -1026,6 +1022,10 @@
     <message>
         <source>Delete Message</source>
         <translation type="unfinished">Delete Message</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

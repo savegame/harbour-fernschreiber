@@ -998,10 +998,6 @@ messages</numerusform>
         <translation>Edit Message</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>You</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Forwarded Message</translation>
     </message>
@@ -1028,6 +1024,10 @@ messages</numerusform>
     <message>
         <source>Delete Message</source>
         <translation>Delete Message</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

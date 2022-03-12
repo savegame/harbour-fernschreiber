@@ -1010,10 +1010,6 @@
         <translation>Upraviť správu</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Ja</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Postúpená správa</translation>
     </message>
@@ -1040,6 +1036,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Odstrániť správu</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

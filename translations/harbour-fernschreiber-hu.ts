@@ -982,10 +982,6 @@
         <translation type="unfinished">Üzenet szerkesztése</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation type="unfinished">Te</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1012,6 +1008,10 @@
     <message>
         <source>Delete Message</source>
         <translation type="unfinished">Üzenet törlése</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

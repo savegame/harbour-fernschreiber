@@ -996,10 +996,6 @@
         <translation>Nachricht bearbeiten</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Sie</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Weitergeleitete Nachricht</translation>
     </message>
@@ -1026,6 +1022,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Nachricht löschen</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -996,10 +996,6 @@
         <translation>Modifica messaggio</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Tu</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Messaggio inoltrato</translation>
     </message>
@@ -1026,6 +1022,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Cancella messaggio</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

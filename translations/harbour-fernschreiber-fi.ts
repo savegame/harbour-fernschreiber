@@ -997,10 +997,6 @@
         <translation>Muokkaa viestiä</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Sinä</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Välitetty viesti</translation>
     </message>
@@ -1027,6 +1023,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Poista viesti</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -1013,10 +1013,6 @@
         <translation>Редактировать</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Я</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Пересланное сообщение</translation>
     </message>
@@ -1043,6 +1039,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Удалить сообщение</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -996,10 +996,6 @@
         <translation>Redigera meddelandet</translation>
     </message>
     <message>
-        <source>You</source>
-        <translation>Du</translation>
-    </message>
-    <message>
         <source>Forwarded Message</source>
         <translation>Vidarebefordrat meddelande</translation>
     </message>
@@ -1026,6 +1022,10 @@
     <message>
         <source>Delete Message</source>
         <translation>Ta bort meddelandet</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
     </message>
 </context>
 <context>
