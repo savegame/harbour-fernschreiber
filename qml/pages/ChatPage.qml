@@ -187,6 +187,7 @@ Page {
 
     }
 
+    // message date and sending status
     function getMessageStatusText(message, listItemIndex, lastReadSentIndex, useElapsed) {
         Debug.log("Last read sent index: " + lastReadSentIndex);
         var messageStatusSuffix = "";
@@ -206,7 +207,7 @@ Page {
             messageStatusSuffix += "&nbsp;&nbsp;"
             if (listItemIndex <= lastReadSentIndex) {
                 // Read by other party
-                messageStatusSuffix += Emoji.emojify("✅", Theme.fontSizeTiny);
+                messageStatusSuffix += Emoji.emojify("✔", Theme.fontSizeTiny);
             } else {
                 // Not yet read by other party
                 if (message.sending_state) {
@@ -214,10 +215,10 @@ Page {
                         messageStatusSuffix += Emoji.emojify("🕙", Theme.fontSizeTiny);
                     } else {
                         // Sending failed...
-                        messageStatusSuffix += Emoji.emojify("❌", Theme.fontSizeTiny);
+                        messageStatusSuffix += Emoji.emojify("✗", Theme.fontSizeTiny);
                     }
                 } else {
-                    messageStatusSuffix += Emoji.emojify("☑️", Theme.fontSizeTiny);
+                    messageStatusSuffix += Emoji.emojify("☑", Theme.fontSizeTiny);
                 }
             }
         }

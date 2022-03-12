@@ -333,7 +333,7 @@ ListItem {
                 anchors.centerIn: messageBackground
 
 
-                Label {
+                Label { // User title label
                     id: userText
 
                     width: parent.width
@@ -353,7 +353,59 @@ ListItem {
                             tdLibWrapper.createPrivateChat(messageListItem.userInformation.id, "openDirectly");
                         }
                     }
+
+                    Text { // Message date label
+                        width: parent.width
+
+                        property bool useElapsed: true
+
+                        id: messageDateText
+                        font.pixelSize: Theme.fontSizeTiny
+                        color: messageListItem.isOwnMessage ? Theme.secondaryHighlightColor : Theme.secondaryColor
+                        horizontalAlignment: Text.AlignRight
+                        text: getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed)
+                        rightPadding: interactionLoader.active ? interactionLoader.width : 0
+
+                        MouseArea {
+                            anchors.fill: parent
+                            enabled: !messageListItem.precalculatedValues.pageIsSelecting
+                            onClicked: {
+                                messageDateText.useElapsed = !messageDateText.useElapsed;
+                                messageDateText.text = getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed);
+                            }
+                        }
+
+                        Loader {
+                            id: interactionLoader
+                            height: parent.height
+                            anchors.right: parent.right
+                            asynchronous: true
+                            active: chatPage.isChannel && messageViewCount
+                            sourceComponent: Component {
+                                Label {
+                                    text: Functions.getShortenedCount(messageViewCount)
+                                    leftPadding: Theme.iconSizeSmall
+                                    font.pixelSize: Theme.fontSizeTiny
+                                    color: Theme.secondaryColor
+                                    Icon {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        width: Theme.iconSizeExtraSmall
+                                        height: Theme.iconSizeExtraSmall
+                                        opacity: 0.6
+                                        source: "../../images/icon-s-eye.svg"
+                                        sourceSize {
+                                            width: Theme.iconSizeExtraSmall
+                                            height: Theme.iconSizeExtraSmall
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
                 }
+
 
                 MessageViaLabel {
                     message: myMessage
@@ -461,7 +513,7 @@ ListItem {
                     }
                 }
 
-                Text {
+                Text { // Message text block
                     id: messageText
                     width: parent.width
                     text: Emoji.emojify(Functions.getMessageText(myMessage, false, page.myUserId, false), Theme.fontSizeMedium)
@@ -543,58 +595,6 @@ ListItem {
                         messageDateText.text = getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed);
                     }
                 }
-
-
-                Text { // Message date label
-                    width: parent.width
-
-                    property bool useElapsed: true
-
-                    id: messageDateText
-                    font.pixelSize: Theme.fontSizeTiny
-                    color: messageListItem.isOwnMessage ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    horizontalAlignment: Text.AlignRight
-                    text: getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed)
-                    rightPadding: interactionLoader.active ? interactionLoader.width : 0
-
-                    MouseArea {
-                        anchors.fill: parent
-                        enabled: !messageListItem.precalculatedValues.pageIsSelecting
-                        onClicked: {
-                            messageDateText.useElapsed = !messageDateText.useElapsed;
-                            messageDateText.text = getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed);
-                        }
-                    }
-
-                    Loader {
-                        id: interactionLoader
-                        height: parent.height
-                        anchors.right: parent.right
-                        asynchronous: true
-                        active: chatPage.isChannel && messageViewCount
-                        sourceComponent: Component {
-                            Label {
-                                text: Functions.getShortenedCount(messageViewCount)
-                                leftPadding: Theme.iconSizeSmall
-                                font.pixelSize: Theme.fontSizeTiny
-                                color: Theme.secondaryColor
-                                Icon {
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    width: Theme.iconSizeExtraSmall
-                                    height: Theme.iconSizeExtraSmall
-                                    opacity: 0.6
-                                    source: "../../images/icon-s-eye.svg"
-                                    sourceSize {
-                                        width: Theme.iconSizeExtraSmall
-                                        height: Theme.iconSizeExtraSmall
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                }
-
             }
 
         }
