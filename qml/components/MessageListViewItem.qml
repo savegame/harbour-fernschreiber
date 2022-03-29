@@ -271,13 +271,13 @@ ListItem {
         width: precalculatedValues.entryWidth
         anchors.centerIn: parent
 
-        Loader {
+        Loader { // User profile icon
             id: profileThumbnailLoader
             active: precalculatedValues.showUserInfo
             asynchronous: true
             width: precalculatedValues.profileThumbnailDimensions
             height: width
-            anchors.bottom: parent.bottom
+            anchors.verticalCenter: parent.verticalCenter
             anchors.bottomMargin: Theme.paddingSmall
             sourceComponent: Component {
                 ProfileThumbnail {
@@ -319,7 +319,7 @@ ListItem {
                 property color backgroundOwnColor:  Theme.colorScheme === Theme.LightOnDark ? Theme.darkSecondaryColor : Theme.lightSecondaryColor
                 color: isOwnMessage ? backgroundOwnColor : backgroundColor
                 radius: parent.width / 50
-                opacity: isUnread ? 0.5 : 0.2
+                opacity: isUnread ? 0.5 : 0.35
                 visible: appSettings.showStickersAsImages || (myMessage.content['@type'] !== "messageSticker" && myMessage.content['@type'] !== "messageAnimatedEmoji")
                 Behavior on color { ColorAnimation { duration: 200 } }
                 Behavior on opacity { FadeAnimation {} }

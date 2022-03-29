@@ -568,7 +568,7 @@ Page {
             }
         }
         onUserFullInfoUpdated: {
-            if(userId === chatPartnerInformation.id) {
+            if((chatPartnerInformation !== 'undefined') && (userId === chatPartnerInformation.id)) {
                 chatPage.botInformation = userFullInfo;
             }
         }
