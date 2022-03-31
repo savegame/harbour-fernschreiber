@@ -356,6 +356,72 @@ ListItem {
                             tdLibWrapper.createPrivateChat(messageListItem.userInformation.id, "openDirectly");
                         }
                     }
+
+
+                } // User title label end
+
+                Item {
+                    id: userTitleDateContainer
+                    width: precalculatedValues.textColumnWidth
+
+                    Label { // Message date label
+//                        width: parent.width
+                        height: parent.height
+
+                        anchors.right: userTitleDateContainer.right
+                        anchors.top: parent.top
+                        anchors.leftMargin: 50
+                        anchors.bottomMargin: 50
+
+                        maximumLineCount: 1
+
+                        property bool useElapsed: true
+
+                        id: messageDateText
+                        font.pixelSize: Theme.fontSizeTiny
+                        color: Theme.secondaryColor
+                        horizontalAlignment: Text.AlignRight
+                        text: getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed)
+                        rightPadding: interactionLoader.active ? interactionLoader.width : 0
+
+//                        MouseArea {
+//                            anchors.fill: parent
+//                            enabled: !messageListItem.precalculatedValues.pageIsSelecting
+//                            onClicked: {
+//                                messageDateText.useElapsed = !messageDateText.useElapsed;
+//                                messageDateText.text = getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed);
+//                            }
+//                        }
+
+//                        Loader {
+//                            id: interactionLoader
+//                            height: parent.height
+//                            anchors.right: parent.right
+//                            asynchronous: true
+//                            active: chatPage.isChannel && messageViewCount
+//                            sourceComponent: Component {
+//                                Label {
+//                                    text: Functions.getShortenedCount(messageViewCount)
+//                                    leftPadding: Theme.iconSizeSmall
+//                                    font.pixelSize: Theme.fontSizeTiny
+//                                    color: Theme.secondaryColor
+//                                    Icon {
+//                                        anchors.verticalCenter: parent.verticalCenter
+//                                        width: Theme.iconSizeExtraSmall
+//                                        height: Theme.iconSizeExtraSmall
+//                                        opacity: 0.6
+//                                        source: "../../images/icon-s-eye.svg"
+//                                        sourceSize {
+//                                            width: Theme.iconSizeExtraSmall
+//                                            height: Theme.iconSizeExtraSmall
+//                                        }
+//                                    }
+//                                }
+//                            }
+
+//                        }
+                    } // Message date label end
+
                 }
 
 
@@ -549,55 +615,7 @@ ListItem {
                 }
 
 
-                Text { // Message date label
-                    width: parent.width
 
-                    property bool useElapsed: true
-
-                    id: messageDateText
-                    font.pixelSize: Theme.fontSizeTiny
-                    color: messageListItem.isOwnMessage ? Theme.secondaryHighlightColor : Theme.secondaryColor
-                    horizontalAlignment: Text.AlignRight
-                    text: getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed)
-                    rightPadding: interactionLoader.active ? interactionLoader.width : 0
-
-                    MouseArea {
-                        anchors.fill: parent
-                        enabled: !messageListItem.precalculatedValues.pageIsSelecting
-                        onClicked: {
-                            messageDateText.useElapsed = !messageDateText.useElapsed;
-                            messageDateText.text = getMessageStatusText(myMessage, index, chatView.lastReadSentIndex, messageDateText.useElapsed);
-                        }
-                    }
-
-                    Loader {
-                        id: interactionLoader
-                        height: parent.height
-                        anchors.right: parent.right
-                        asynchronous: true
-                        active: chatPage.isChannel && messageViewCount
-                        sourceComponent: Component {
-                            Label {
-                                text: Functions.getShortenedCount(messageViewCount)
-                                leftPadding: Theme.iconSizeSmall
-                                font.pixelSize: Theme.fontSizeTiny
-                                color: Theme.secondaryColor
-                                Icon {
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    width: Theme.iconSizeExtraSmall
-                                    height: Theme.iconSizeExtraSmall
-                                    opacity: 0.6
-                                    source: "../../images/icon-s-eye.svg"
-                                    sourceSize {
-                                        width: Theme.iconSizeExtraSmall
-                                        height: Theme.iconSizeExtraSmall
-                                    }
-                                }
-                            }
-                        }
-
-                    }
-                } // Message date label end
             }
 
         }
