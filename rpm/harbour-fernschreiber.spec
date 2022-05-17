@@ -7,7 +7,7 @@ Name:       harbour-fernschreiber
 
 # >> macros
 %define __provides_exclude_from ^%{_datadir}/.*$
-%define __requires_exclude ^libtdjson.*$
+%define __requires_exclude ^lib(tdjson|ssl|crypto).*$ 
 # << macros
 
 Summary:    Fernschreiber is a Telegram client for Sailfish OS
@@ -57,8 +57,8 @@ make %{?_smp_mflags}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%qmake5_install
-
+# %qmake5_install
+make INSTALL_ROOT=%{buildroot} install 
 # >> install post
 # << install post
 
@@ -68,9 +68,13 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}
-%{_datadir}/%{name}
+%attr(755,root,root) %{_bindir}/%{name}
+%attr(655,root,root) %{_datadir}/%{name}/qml
+%{_datadir}/%{name}/lib
+%attr(655,root,root) %{_datadir}/%{name}/images
+%attr(655,root,root) %{_datadir}/%{name}/db
+%attr(655,root,root) %{_datadir}/%{name}/translations
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/*/apps/%{name}.png
+%attr(644,root,root) %{_datadir}/icons/hicolor/*/apps/%{name}.png
 # >> files
 # << files
